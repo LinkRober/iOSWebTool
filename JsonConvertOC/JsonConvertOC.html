@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <title>JSON Convert OC Property</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://rober-css.oss-cn-beijing.aliyuncs.com/jquery.numberedtextarea.css" rel="stylesheet">
+        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+        <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#input_textarea,#output_textarea").val('');
+                $("button").click(function () { 
+                var text = $("#input_textarea").val();
+                var obj = JSON.parse(text);
+                var propertys = "";
+                for(var key in obj){
+                    console.log(key)
+                    if(typeof obj[key] == 'string'){
+                        propertys = propertys + "@property (nonatomic, strong) NSString *" + key + "\n" 
+                        console.log(obj[key])
+                    }
+                    if(typeof obj[key] == 'number') {
+                        propertys = propertys + "@property (nonatomic, assign) NSInteger " + key + "\n" 
+                        console.log(obj[key])
+                    }
+                    if(obj[key] instanceof Array){
+                        propertys = propertys + "@property (nonatomic, strong) NSArray *" + key + "\n" 
+                        console.log(obj[key])
+                    }
+                    if(obj[key] instanceof Object){
+                        propertys = propertys + "@property (nonatomic, strong) id " + key + "\n" 
+                        console.log(obj[key])
+                    }
+                }
+                $('#output_textarea').val(propertys);
+             })
+            })
+            
+        </script>
+    </head>
+    <body>
+        <header style="border-bottom: solid 1px #e5ebee">
+            <div style="position: relative;height: 5vh;text-align: center;padding-top:10px">
+                Rober的开发工具
+            </div>
+        </header>
+        <!-- <div class="container"> -->
+            <div class="row">
+                <div class="col-sm-4 col-md-4 col-lg-4" style="padding: 0px;height: 100%;">
+                    <div class="numberedtextarea-wrapper">
+                            <textarea id="input_textarea" placeholder="在此输入json字符串" class="form-control" style="height: 87vh; padding: 10px 10px 10px 30px;font-size: 10px;min-height: 520px;border: solid 1px #e5ebee;border-bottom:solid 1px #eee;border-radius:0;resize: none;outline: none">       
+                                </textarea>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4" style="padding: 0px;height: 100%;align-items: center;align-content: center">
+                        <button type="button" class="btn btn-success col-md-offset-5" style="margin-top: 50%">Convert</button>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4" style="padding: 0px;height: 100%;">
+                        <textarea id="output_textarea" placeholder="Object-C Property" class="form-control" style="height: 87vh;padding: 10px 10px 10px 30px;font-size: 10px;min-height: 520px;border: solid 1px #e5ebee;border-bottom:solid 1px #eee;border-radius:0;resize: none;outline: none">       
+                            </textarea>
+                </div>
+            </div>
+        <!-- </div> -->
+    </body>
+</html>
