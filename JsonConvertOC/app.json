@@ -2,7 +2,7 @@
   "apps":
     {
       "name": "JsonConvertOC",
-      "script": "http-server ./ -p 5050 -d false",
+      "script": "/usr/local/bin/http-server ./ -p 5050 -d false",
       "env": {
         "NODE_ENV": "production"
       }
