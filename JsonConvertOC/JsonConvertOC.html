@@ -19,19 +19,19 @@
                 for(var key in obj){
                     console.log(key)
                     if(typeof obj[key] == 'string'){
-                        propertys = propertys + "@property (nonatomic, strong) NSString *" + key + "\n" 
+                        propertys = propertys + "@property (nonatomic, strong) NSString *" + key + ";" + "\n" 
                         console.log(obj[key])
                     }
                     if(typeof obj[key] == 'number') {
-                        propertys = propertys + "@property (nonatomic, assign) NSInteger " + key + "\n" 
+                        propertys = propertys + "@property (nonatomic, assign) NSInteger " + key +  ";" + "\n" 
                         console.log(obj[key])
                     }
                     if(obj[key] instanceof Array){
-                        propertys = propertys + "@property (nonatomic, strong) NSArray *" + key + "\n" 
+                        propertys = propertys + "@property (nonatomic, strong) NSArray *" + key +  ";" + "\n" 
                         console.log(obj[key])
                     }
                     if(obj[key] instanceof Object){
-                        propertys = propertys + "@property (nonatomic, strong) id " + key + "\n" 
+                        propertys = propertys + "@property (nonatomic, strong) id " + key +  ";" + "\n" 
                         console.log(obj[key])
                     }
                 }
