@@ -3,12 +3,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
         <title>JSON Convert OC Property</title>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://rober-css.oss-cn-beijing.aliyuncs.com/jquery.numberedtextarea.css" rel="stylesheet">
+        <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+        <!-- <link href="https://rober-css.oss-cn-beijing.aliyuncs.com/jquery.numberedtextarea.css" rel="stylesheet"> -->
         <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-        <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+        <!-- <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script> -->
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-        <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
         <script>
             $(document).ready(function(){
                 $("#input_textarea,#output_textarea").val('');
@@ -37,32 +41,66 @@
                 }
                 $('#output_textarea').val(propertys);
              })
+             $("#OCProperty").click(function(){
+                 $("li").attr("class","nav-item");
+                 $("#OCProperty").parent().attr("class","nav-item active");
+             })
             })
             
         </script>
     </head>
     <body>
         <header style="border-bottom: solid 1px #e5ebee">
-            <div style="position: relative;height: 5vh;text-align: center;padding-top:10px">
+            <!-- <div style="position: relative;height: 5vh;text-align: center;padding-top:10px">
                 Rober的开发工具
-            </div>
+            </div> -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" style="font-size: 18px" href="#">董二千的开发工具</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item ">
+                      <a class="nav-link " href="#"> <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="https://linkrober.github.io/bookshelf/">博客</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" id="OCProperty" href="#">Json->Property</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                      <a class="nav-link" href="#">Disabled</a>
+                    </li> -->
+                  </ul>
+                </div>
+              </nav>
         </header>
-        <!-- <div class="container"> -->
-            <div class="row">
+        <div class="container-fluid">
+            <div class="row ">
                 <div class="col-sm-4 col-md-4 col-lg-4" style="padding: 0px;height: 100%;">
                     <div class="numberedtextarea-wrapper">
                             <textarea id="input_textarea" placeholder="在此输入json字符串" class="form-control" style="height: 87vh; padding: 10px 10px 10px 30px;font-size: 10px;min-height: 520px;border: solid 1px #e5ebee;border-bottom:solid 1px #eee;border-radius:0;resize: none;outline: none">       
                                 </textarea>
                     </div>
                 </div>
-                <div class="col-sm-4 col-md-4 col-lg-4" style="padding: 0px;height: 100%;align-items: center;align-content: center">
-                        <button type="button" class="btn btn-success col-md-offset-5" style="margin-top: 50%">Convert</button>
+                <div class="col-sm-4 col-md-4 col-lg-4" style="padding: 0px;height: 100%;">
+                        <button type="button" class="btn btn-success " style="margin-top: 50%;margin-left: 40%">Convert</button>
                 </div>
                 <div class="col-sm-4 col-md-4 col-lg-4" style="padding: 0px;height: 100%;">
                         <textarea id="output_textarea" placeholder="Object-C Property" class="form-control" style="height: 87vh;padding: 10px 10px 10px 30px;font-size: 10px;min-height: 520px;border: solid 1px #e5ebee;border-bottom:solid 1px #eee;border-radius:0;resize: none;outline: none">       
                             </textarea>
                 </div>
             </div>
-        <!-- </div> -->
+        </div>
     </body>
 </html>
+
+<style>
+    .vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+</style>
