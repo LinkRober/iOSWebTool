@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "file:///Users/xiamin/Documents/XYRepository/iOSWebTool/JsonConvertOC/JsonConvertOC.html",
+            "url": "file:///Users/xiamin/Documents/XYRepository/iOSWebTool/JsonConvertOC/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
